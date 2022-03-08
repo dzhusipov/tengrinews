@@ -39,22 +39,18 @@ class GetNewsSpider(scrapy.Spider):
     def get_article_comments(self, response):
         data = json.loads(response.body)
         s = json.dumps(data, indent=4, sort_keys=True)
-        print(s)
+        #print(s)
 
-        print(data['list'][0]['name'])
+        #print(data['list'][0]['name'])
+        print(data['list'][0]['news_header'])
+        for top_comment in data['list']:
+            yield {
+                "username" : top_comment['name'],
+                "comment" : top_comment['text']
+            }
+            #for comment in top_comment['child']:
+            #    print(comment['name'])
+            #    print(comment['text'])
+            #    print('\n')
 
-
-    # for comment in response.css('.tn-comment-item'):
-    #    print('=++++++++++++++++')
-    #    username = comment.css('.tn-user-name').get()
-    #    comment_datetime = comment.xpath('div/div/div/time/text()')
-    #    comment_text = comment.css('.tn-comment-item-content-text').get()
-    #    comment_rating = comment.xpath('div/div/div/div/span/span/text()')
-    #    print('#######################' + username + ' ' + comment_datetime
-    #    + ' ' + comment_text + ' ' + comment_rating)
-    #    yield {
-    #        'username': username,
-    #        'comment_datetime': comment_datetime,
-    #        'comment_text': comment_text,
-    #        'comment_rating': comment_rating
-    #    }
+        
