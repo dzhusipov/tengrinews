@@ -1,4 +1,4 @@
-#!/Users/dasm/develop/python/tengrinews/venv/bin/python
+#!/Users/dasm/develop/python/tengrinews/venv/bin/python3.9
 # -*- coding: utf-8 -*-
 import re
 import sys
