@@ -37,7 +37,11 @@ class GetNewsSpider(scrapy.Spider):
         )
 
     def get_article_comments(self, response):
-        print(response.body)
+        data = json.loads(response.body)
+        s = json.dumps(data, indent=4, sort_keys=True)
+        print(s)
+
+        print(data['list'][0]['name'])
 
 
     # for comment in response.css('.tn-comment-item'):
