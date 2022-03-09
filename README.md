@@ -1,4 +1,4 @@
-# Tengrinews news and comments for comments classificator
+# Tengrinews comments grabber
 
 pip install -r requirements.txt  
 scrapy crawl get_news
